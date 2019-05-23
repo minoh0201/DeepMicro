@@ -50,7 +50,7 @@ X_train.shape:  (80, 200)
 Classification task has been skipped.
 ```
     
-__3. Suppose that we want to reduce the number of dimensions of our data to 20 from 200 using a *shallow autoencoder*.__ Note that `--save_rep` command will save your representation under the `/results` folder.
+__3. Suppose that we want to reduce the number of dimensions of our data to 20 from 200 using a *shallow autoencoder*.__ Note that `--save_rep` argument will save your representation under the `/results` folder.
 ```
 ~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --ae -dm 20 --save_rep
 ```
@@ -63,7 +63,7 @@ It looks fine. Now, run the model and get the learned representation.
 ```    
 ~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --ae -dm 100,40,20 --save_rep
 ```
-__5. We can try *variational autoencoder* and * convolutional autoencoder* as well.__ Note that you can see detailed argument description using `-h` command.
+__5. We can try *variational autoencoder* and * convolutional autoencoder* as well.__ Note that you can see detailed argument description by using `-h` argument.
 ```
 ~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --vae -dm 100,20 --save_rep
 ```
@@ -88,7 +88,17 @@ y_test.shape:  (16,)
 Classification task has been skipped.
 ```
 
-__3. Suppose that we want to directly apply SVM algorithm on our data without representation learning.__  Remove `--no_clf` command and specify classification method with `-m svm` argument (If you don't specify classification algorithm, all three - SVM, Random Forest, Multi-layer perceptron - algorithms will be running). The result will be saved under `/results` folder as a `UserDataExample_result.txt`. The resulting file will be growing as you conduct more experiments.
+__3. Suppose that we want to directly apply SVM algorithm on our data without representation learning.__  Remove `--no_clf` command and specify classification method with `-m svm` argument (If you don't specify classification algorithm, all three algorithms will be running). The result will be saved under `/results` folder as a `UserDataExample_result.txt`. The resulting file will be growing as you conduct more experiments.
 ```
-~$ python DM.py -r 1 -cd UserDataExample.csv -cl UserLabelExample.csv --ae -m svm
+~$ python DM.py -r 1 -cd UserDataExample.csv -cl UserLabelExample.csv -m svm
+```
+
+__4. You can learn representation first, and then apply SVM algorithm.
+```
+~$ python DM.py -r 1 -cd UserDataExample.csv -cl UserLabelExample.csv --ae -dm 20 -m svm
+```
+
+__5. You can repeat the same experiment by changing seeds for random partitioning of training and test set.__  Suppose we want to repeat classfication task five times. You can do it by put 5 into `-r` argument.
+```
+~$ python DM.py -r 5 -cd UserDataExample.csv -cl UserLabelExample.csv --ae -dm 20 -m svm
 ```
