@@ -36,8 +36,9 @@ DeepMicro is a deep representation learning framework exploiting various autoenc
 ## Quick Start Guide
 *Make sure you have already gone through the **Quick Setup Guide** above.*
 ### Learning representation with your own data
-**1. Copy your data under the `/data` directory.** Your data should be a comma separated file without header and index, where each row represents a sample and each column represents a microbe. We are going to assume that your file name is `UserDataExample.csv` which is already provided.
-**2. Check your data can be successfully loaded and verify its shape with the following command.**
+__1. Copy your data under the `/data` directory.__ Your data should be a comma separated file without header and index, where each row represents a sample and each column represents a microbe. We are going to assume that your file name is `UserDataExample.csv` which is already provided.
+
+__2. Check your data can be successfully loaded and verify its shape with the following command.__
     ```
     ~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv
     ```
@@ -48,11 +49,12 @@ DeepMicro is a deep representation learning framework exploiting various autoenc
     X_train.shape:  (100, 30)
     Classification task has been skipped.
     ```
-**3. Suppose that we want to reduce the number of dimensions of our data to 3 from 30 using a *shallow autoencoder*.** `--save_rep` command will save your representation under the `/results` folder.
+__3. Suppose that we want to reduce the number of dimensions of our data to 3 from 30 using a *shallow autoencoder*.__ `--save_rep` command will save your representation under the `/results` folder.
     ```
     ~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --ae -dm 3 --save_rep
     ```
-**4. Suppose that we want to use *deep autoencoder* with 2 hidden layers which has 10 units and 5 units, respectively.** Let the size of latent layer to be 3. We are going to see the structure of deep autoencoder first.
+    
+__4. Suppose that we want to use *deep autoencoder* with 2 hidden layers which has 10 units and 5 units, respectively.__ Let the size of latent layer to be 3. We are going to see the structure of deep autoencoder first.
     ```
     ~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --ae -dm 10,5,3 --no_trn
     ```
