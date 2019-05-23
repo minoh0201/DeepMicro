@@ -87,7 +87,7 @@ class DeepMicrobiome(object):
         self.y_train = np.zeros(shape=(self.X_train.shape[0])).astype(dtype)
         self.X_test = np.zeros(shape=(0,self.X_train.shape[1])).astype(dtype)
         self.y_test = np.zeros(shape=(0,)).astype(dtype)
-        self.printDataShapes()
+        self.printDataShapes(train_only=True)
 
     def loadCustomDataWithLabels(self, label_data, dtype=None):
         # read file
@@ -420,11 +420,12 @@ class DeepMicrobiome(object):
 
         return metrics
 
-    def printDataShapes(self):
+    def printDataShapes(self, train_only=False):
         print("X_train.shape: ", self.X_train.shape)
-        print("y_train.shape: ", self.y_train.shape)
-        print("X_test.shape: ", self.X_test.shape)
-        print("y_test.shape: ", self.y_test.shape)
+        if not train_only:
+            print("y_train.shape: ", self.y_train.shape)
+            print("X_test.shape: ", self.X_test.shape)
+            print("y_test.shape: ", self.y_test.shape)
 
     # ploting loss progress over epochs
     def saveLossProgress(self):
