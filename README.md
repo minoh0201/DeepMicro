@@ -130,4 +130,4 @@ Here are another examples using a single classification algorithm.
 ~$ python DM.py -d marker_Colorectal --dae -dm 512,256,128 -m mlp
 ```
 
-The result will be saved under `/results` folder in a file ended with `_results.txt` (e.g. `marker_WT2D_result.txt`)
+The result will be saved under `/results` folder in a file whose name is ended with `_results.txt` (e.g. `marker_WT2D_result.txt`)
