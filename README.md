@@ -88,10 +88,11 @@ y_test.shape:  (16,)
 Classification task has been skipped.
 ```
 
-__3. Suppose that we want to directly apply SVM algorithm on our data without representation learning.__  Remove `--no_clf` command and specify classification method with `-m svm` argument (If you don't specify classification algorithm, all three algorithms will be running). The result will be saved under `/results` folder as a `UserDataExample_result.txt`. The resulting file will be growing as you conduct more experiments.
+__3. Suppose that we want to directly apply SVM algorithm on our data without representation learning.__  Remove `--no_clf` command and specify classification method with `-m svm` argument (If you don't specify classification algorithm, all three algorithms will be running). 
 ```
 ~$ python DM.py -r 1 -cd UserDataExample.csv -cl UserLabelExample.csv -m svm
 ```
+The result will be saved under `/results` folder as a `UserDataExample_result.txt`. The resulting file will be growing as you conduct more experiments.
 
 __4. You can learn representation first, and then apply SVM algorithm on the learned representation.__
 ```
