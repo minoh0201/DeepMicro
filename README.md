@@ -42,24 +42,31 @@ __2. Check your data can be successfully loaded and verify its shape with the fo
 ```
 ~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv
 ```
-The output will show the number of rows and columns right next to `X_train.shape`. Our data `UserDataExample.csv` contains 100 rows and 30 columns.
+The output will show the number of rows and columns right next to `X_train.shape`. Our data `UserDataExample.csv` contains 80 rows and 200 columns.
 ```
 Using TensorFlow backend.
 Namespace(act='relu', ae=False, ae_lact=False, ae_oact=False, aeloss='mse', cae=False, custom_data='UserDataExample.csv', custom_data_labels=None, data=None, dataType='float64', data_dir='', dims='50', max_epochs=2000, method='all', no_clf=True, numFolds=5, numJobs=-2, patience=20, pca=False, repeat=1, rf_rate=0.1, rp=False, save_rep=False, scoring='roc_auc', seed=0, st_rate=0.25, svm_cache=1000, vae=False, vae_beta=1.0, vae_warmup=False, vae_warmup_rate=0.01)
-X_train.shape:  (100, 30)
+X_train.shape:  (80, 200)
 Classification task has been skipped.
 ```
     
-__3. Suppose that we want to reduce the number of dimensions of our data to 3 from 30 using a *shallow autoencoder*.__ `--save_rep` command will save your representation under the `/results` folder.
+__3. Suppose that we want to reduce the number of dimensions of our data to 20 from 200 using a *shallow autoencoder*.__ Note that `--save_rep` command will save your representation under the `/results` folder.
 ```
-~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --ae -dm 3 --save_rep
+~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --ae -dm 20 --save_rep
 ```
     
-__4. Suppose that we want to use *deep autoencoder* with 2 hidden layers which has 10 units and 5 units, respectively.__ Let the size of latent layer to be 3. We are going to see the structure of deep autoencoder first.
+__4. Suppose that we want to use *deep autoencoder* with 2 hidden layers which has 100 units and 40 units, respectively.__ Let the size of latent layer to be 20. We are going to see the structure of deep autoencoder first.
 ```
-~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --ae -dm 10,5,3 --no_trn
+~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --ae -dm 100,40,20 --no_trn
 ```
 It looks fine. Now, run the model and get the learned representation.
 ```    
-~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --ae -dm 10,5,3 --save_rep
+~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --ae -dm 100,40,20 --save_rep
+```
+__5. We can try *variational autoencoder* and * convolutional autoencoder* as well.__ Note that you can see detailed argument description using `-h` command.
+```
+~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --vae -dm 100,20 --save_rep
+```
+```
+~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --cae -dm 100,50,1 --save_rep
 ```
