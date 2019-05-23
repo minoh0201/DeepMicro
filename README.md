@@ -1,9 +1,7 @@
 # DeepMicro
 DeepMicro is a deep representation learning framework exploiting various autoencoders to learn robust low-dimensional representations from high-dimensional data and training classification models based on the learned representation.
 
-## Quick Start Guide
-
-### Setup
+## Quick Setup Guide
 **Step 1:** Change the current working directory to the location where you want to install `DeepMicro`.
 
 **Step 2:** Clone the repository using git command
@@ -30,3 +28,9 @@ If it is, then install tensorflow gpu version
 ```
 ~$ pip install tensorflow-gpu==1.13.1
 ```
+**Step 5:** Run DeepMicro, printing out its usage.
+```
+~$ python DM.py -h
+```
+
+## Quick Start Guide
