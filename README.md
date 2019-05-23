@@ -37,4 +37,7 @@ DeepMicro is a deep representation learning framework exploiting various autoenc
 *Make sure you have already gone through the **Quick Setup Guide** above.*
 ### Learning representation with your own data
 1. Copy your data under the `/data` directory. Your data should be a comma separated file without header and index, where each row represents a sample and each column represents a microbe. We are going to assume that your file name is `UserDataExample.csv` which is already provided.
-
+2. Check your data shape with the following command.
+```
+~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv
+```
