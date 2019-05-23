@@ -85,8 +85,8 @@ class DeepMicrobiome(object):
 
         # put nothing or zeros for y_train, y_test, and X_test
         self.y_train = np.zeros(shape=(self.X_train.shape[0])).astype(dtype)
-        self.X_test = np.zeros(shape=(0,self.X_train.shape[1])).astype(dtype)
-        self.y_test = np.zeros(shape=(0,)).astype(dtype)
+        self.X_test = np.zeros(shape=(1,self.X_train.shape[1])).astype(dtype)
+        self.y_test = np.zeros(shape=(1,)).astype(dtype)
         self.printDataShapes(train_only=True)
 
     def loadCustomDataWithLabels(self, label_data, dtype=None):
