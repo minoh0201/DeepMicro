@@ -429,9 +429,9 @@ class DeepMicrobiome(object):
 
     # ploting loss progress over epochs
     def saveLossProgress(self):
-        print(self.history.history.keys())
-        print(type(self.history.history['loss']))
-        print(min(self.history.history['loss']))
+        #print(self.history.history.keys())
+        #print(type(self.history.history['loss']))
+        #print(min(self.history.history['loss']))
 
         loss_collector, loss_max_atTheEnd = self.saveLossProgress_ylim()
 
