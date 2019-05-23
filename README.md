@@ -119,4 +119,15 @@ Suppose we are going to run the best representation model on marker profile of E
 ```
 Note that if you don't specify `-r` argument, it will repeat five times by default. We can use all available CPU cores when we train classification models by introducing `-t -1` argument.
 
+Here are another examples using a single classification algorithm.
+```
+~$ python DM.py -d marker_T2D --cae -dm 4,2 -m mlp
+```
+```
+~$ python DM.py -d abundance_Obesity --cae -dm 4,2 -m rf
+```
+```
+~$ python DM.py -d marker_Colorectal --dae -dm 512,256,128 -m mlp
+```
 
+The result will be saved under `/results` folder in a file ended with `_results.txt` (e.g. `marker_WT2D_result.txt`)
