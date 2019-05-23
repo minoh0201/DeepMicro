@@ -35,5 +35,6 @@ DeepMicro is a deep representation learning framework exploiting various autoenc
 
 ## Quick Start Guide
 *Make sure you have already gone through the **Quick Setup Guide** above*
-### 1. Learning representation with your own data
-* Copy your data under the `/data` directory. Your data should be a comma separated file. We are going to assume that your file name is `UserDataExample.csv` which is already provided once you clone the repository correctly.
+### * Learning representation with your own data
+1. Copy your data under the `/data` directory. Your data should be a comma separated file. We are going to assume that your file name is `UserDataExample.csv` which is already provided.
+
