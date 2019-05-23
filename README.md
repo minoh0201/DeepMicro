@@ -1,8 +1,5 @@
 # DeepMicro
 DeepMicro is a deep representation learning framework exploiting various autoencoders to learn robust low-dimensional representations from high-dimensional data and training classification models based on the learned representation.
-## Quick Start Guide
-**Make sure you have already gone through the Quick Setup Guide below
-### 1. Learning representation with your own data
 
 ## Quick Setup Guide
 **Step 1:** Change the current working directory to the location where you want to install `DeepMicro`.
@@ -35,3 +32,8 @@ DeepMicro is a deep representation learning framework exploiting various autoenc
 ```
 ~$ python DM.py -h
 ```
+
+## Quick Start Guide
+*Make sure you have already gone through the **Quick Setup Guide** above*
+### 1. Learning representation with your own data
+* Copy your data under the `/data` directory. Your data should be a comma separated file. We are going to assume that your file name is `UserDataExample.csv` which is already provided once you clone the repository correctly.
