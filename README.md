@@ -103,7 +103,7 @@ __5. You can repeat the same experiment by changing seeds for random partitionin
 ~$ python DM.py -r 5 -cd UserDataExample.csv -cl UserLabelExample.csv --ae -dm 20 -m svm
 ```
 
-### Reproducing the experiment conducted in the original paper
+### Reproducing the experiments described in our paper
 __1. Unzip `abundance.zip` and `marker.zip` files under the `/data` directory.__ 
 ```
 ~$ cd data
