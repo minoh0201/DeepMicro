@@ -426,8 +426,6 @@ class DeepMicrobiome(object):
         print('AUC, ACC, Recall, Precision, F1_score', 'time-end', 'runtime(sec)', 'classfication time(sec)', 'best hyper-parameter')
         print(metrics)
 
-        return metrics
-
     def printDataShapes(self, train_only=False):
         print("X_train.shape: ", self.X_train.shape)
         if not train_only:
