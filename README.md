@@ -44,7 +44,7 @@ __2. Check your data can be successfully loaded and verify its shape with the fo
     ~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv
     ```
     
-    The output will show the number of rows and columns right next to `X_train.shape`. Our data `UserDataExample.csv` contains 100 rows and 30 columns.
+   The output will show the number of rows and columns right next to `X_train.shape`. Our data `UserDataExample.csv` contains 100 rows and 30 columns.
     
     ```
     Using TensorFlow backend.
@@ -65,7 +65,7 @@ __4. Suppose that we want to use *deep autoencoder* with 2 hidden layers which h
     ~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --ae -dm 10,5,3 --no_trn
     ```
     
-    It looks fine. Now, run the model and get the learned representation.
+   It looks fine. Now, run the model and get the learned representation.
     
     ```
     ~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --ae -dm 10,5,3 --save_rep
