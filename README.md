@@ -34,3 +34,4 @@ DeepMicro is a deep representation learning framework exploiting various autoenc
 ```
 
 ## Quick Start Guide
+### 1. Learning representation with your own data
