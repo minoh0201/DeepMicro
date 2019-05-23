@@ -48,3 +48,15 @@ DeepMicro is a deep representation learning framework exploiting various autoenc
     X_train.shape:  (100, 30)
     Classification task has been skipped.
     ```
+3. Suppose that we want to reduce the number of dimensions of our data to 3 from 30 using a *shallow autoencoder*. `--save_rep` command will save your representation under the `/results` folder.
+    ```
+    ~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --ae -dm 3 --save_rep
+    ```
+4. Suppose that we want to use *deep autoencoder* with 2 hidden layers which has 10 units and 5 units, respectively. Let the size of latent layer to be 3. We are going to see the structure of deep autoencoder first.
+    ```
+    ~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --ae -dm 10,5,3 --no_trn
+    ```
+    It looks fine. Now, run the model and get the learned representation.
+    ```
+    ~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --ae -dm 10,5,3 --save_rep
+    ```
