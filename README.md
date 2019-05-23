@@ -112,7 +112,7 @@ __1. Unzip `abundance.zip` and `marker.zip` files under the `/data` directory.__
 ```
 __2. Specify dataset name to run.__ Choose dataset you want to run. You can choose one of the followings: `abundance_Cirrhosis`, `abundance_Colorectal`, `abundance_IBD`, `abundance_Obesity`, `abundance_T2D`, `abundance_WT2D`, `marker_Cirrhosis`, `marker_Colorectal`, `marker_IBD`, `marker_Obesity`, `marker_T2D`, `marker_WT2D`. Note that WT2D indicates European Women cohort (EW-T2D) and T2D indicates Chinese cohort (C-T2D).
 
-__3. run experiments specifying autoencoder details.__ 
+__3. Run experiments, specifying autoencoder details.__ 
 Suppose we are going to run the best representation model on marker profile of EW-T2D dataset as shown in Table S1. Then, all three classification algorithms are trained and evaluated. We are going to repeat this process 5 times with the following command:
 ```
 ~$ python DM.py -d marker_WT2D --ae -dm 256
