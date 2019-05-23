@@ -423,7 +423,7 @@ class DeepMicrobiome(object):
             res.to_csv(f, header=None)
 
         print('Accuracy metrics')
-        print('AUC, ACC, Recall, Precision, F1_score', 'time-end', 'runtime(sec)', 'classfication time(sec)', 'best hyper-parameter')
+        print('AUC, ACC, Recall, Precision, F1_score, time-end, runtime(sec), classfication time(sec), best hyper-parameter')
         print(metrics)
 
     def printDataShapes(self, train_only=False):
