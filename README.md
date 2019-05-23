@@ -93,7 +93,7 @@ __3. Suppose that we want to directly apply SVM algorithm on our data without re
 ~$ python DM.py -r 1 -cd UserDataExample.csv -cl UserLabelExample.csv -m svm
 ```
 
-__4. You can learn representation first, and then apply SVM algorithm.
+__4. You can learn representation first, and then apply SVM algorithm on the learned representation.__
 ```
 ~$ python DM.py -r 1 -cd UserDataExample.csv -cl UserLabelExample.csv --ae -dm 20 -m svm
 ```
@@ -102,3 +102,21 @@ __5. You can repeat the same experiment by changing seeds for random partitionin
 ```
 ~$ python DM.py -r 5 -cd UserDataExample.csv -cl UserLabelExample.csv --ae -dm 20 -m svm
 ```
+
+### Reproducing the experiment conducted in the original paper
+__1. Unzip `abundance.zip` and `marker.zip` files under the `/data` directory.__ 
+```
+~$ cd data
+~$ unzip abundance.zip && unzip marker.zip
+~$ cd ..
+```
+__2. Specify dataset name to run.__ Choose dataset you want to run. You can choose one of the followings: `abundance_Cirrhosis`, `abundance_Colorectal`, `abundance_IBD`, `abundance_Obesity`, `abundance_T2D`, `abundance_WT2D`, `marker_Cirrhosis`, `marker_Colorectal`, `marker_IBD`, `marker_Obesity`, `marker_T2D`, `marker_WT2D`. Note that WT2D indicates European Women cohort (EW-T2D) and T2D indicates Chinese cohort (C-T2D).
+
+__3. run experiments specifying autoencoder details.__ 
+Suppose we are going to run the best representation model on marker profile of EW-T2D dataset as shown in Table S1. Then, all three classification algorithms are trained and evaluated. We are going to repeat this process 5 times with the following command:
+```
+~$ python DM.py -d marker_WT2D --ae -dm 256
+```
+Note that if you don't specify `-r` argument, it will repeat five times by default. We can use all available CPU cores when we train classification models by introducing `-t -1` argument.
+
+
