@@ -70,3 +70,25 @@ __5. We can try *variational autoencoder* and * convolutional autoencoder* as we
 ```
 ~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --cae -dm 100,50,1 --save_rep
 ```
+
+### Conducting binary classification after Learning representation with your own data
+__1. Copy your *data file* and *label file* under the `/data` directory.__ Your data file should be a comma separated value (CSV) format without header and index, where each row represents a sample and each column represents a microbe. __Your label file should contain a binary value (0 or 1) in each line and the number of lines should be equal to that in your data file.__ We are going to assume that your data file name is `UserDataExample.csv` and label file name is `UserLabelExample.csv` which are already provided.
+
+__2. Check your data can be successfully loaded and verify its shape with the following command.__
+```
+~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv -cl UserLabelExample.csv
+```
+The output will show the number of rows and columns right next to `X_train.shape`. Our data `UserDataExample.csv` contains 80 rows and 200 columns.
+```
+Namespace(act='relu', ae=False, ae_lact=False, ae_oact=False, aeloss='mse', cae=False, custom_data='UserDataExample.csv', custom_data_labels='UserLabelExample.csv', data=None, dataType='float64', data_dir='', dims='50', max_epochs=2000, method='all', no_clf=True, no_trn=False, numFolds=5, numJobs=-2, patience=20, pca=False, repeat=1, rf_rate=0.1, rp=False, save_rep=False, scoring='roc_auc', seed=0, st_rate=0.25, svm_cache=1000, vae=False, vae_beta=1.0, vae_warmup=False, vae_warmup_rate=0.01)
+X_train.shape:  (64, 200)
+y_train.shape:  (64,)
+X_test.shape:  (16, 200)
+y_test.shape:  (16,)
+Classification task has been skipped.
+```
+
+__3. Suppose that we want to directly apply classification algorithms on our data without representation learning.__  Just remove `--save_rep` command will save your representation under the `/results` folder.
+```
+~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --ae -dm 20 --save_rep
+```
