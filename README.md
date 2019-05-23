@@ -78,7 +78,7 @@ __2. Check your data can be successfully loaded and verify its shape with the fo
 ```
 ~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv -cl UserLabelExample.csv
 ```
-The output will show the number of rows and columns right next to `X_train.shape`. Our data `UserDataExample.csv` contains 80 rows and 200 columns.
+Our data `UserDataExample.csv` consists of 80 samples each of which has 200 features. The data will be split into the training set and the test set (in 8:2 ratio). The output will show the number of rows and columns for each data set.
 ```
 Namespace(act='relu', ae=False, ae_lact=False, ae_oact=False, aeloss='mse', cae=False, custom_data='UserDataExample.csv', custom_data_labels='UserLabelExample.csv', data=None, dataType='float64', data_dir='', dims='50', max_epochs=2000, method='all', no_clf=True, no_trn=False, numFolds=5, numJobs=-2, patience=20, pca=False, repeat=1, rf_rate=0.1, rp=False, save_rep=False, scoring='roc_auc', seed=0, st_rate=0.25, svm_cache=1000, vae=False, vae_beta=1.0, vae_warmup=False, vae_warmup_rate=0.01)
 X_train.shape:  (64, 200)
@@ -88,7 +88,7 @@ y_test.shape:  (16,)
 Classification task has been skipped.
 ```
 
-__3. Suppose that we want to directly apply SVM algorithm on our data without representation learning.__  Remove `--no_clf` command and specify classification method with `-m svm` argument (If you don't specify classification algorithm, all three - SVM, Random Forest, Multi-layer perceptron - algorithms will be running).
+__3. Suppose that we want to directly apply SVM algorithm on our data without representation learning.__  Remove `--no_clf` command and specify classification method with `-m svm` argument (If you don't specify classification algorithm, all three - SVM, Random Forest, Multi-layer perceptron - algorithms will be running). The result will be saved under `/results` folder as a `UserDataExample_result.txt`. The resulting file will be growing as you conduct more experiments.
 ```
-~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv -cl UserLabelExample.csv -m svm
+~$ python DM.py -r 1 -cd UserDataExample.csv -cl UserLabelExample.csv --ae -m svm
 ```
