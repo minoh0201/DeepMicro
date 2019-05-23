@@ -131,3 +131,6 @@ Here are another examples using a single classification algorithm.
 ```
 
 The result will be saved under `/results` folder in a file whose name is ended with `_results.txt` (e.g. `marker_WT2D_result.txt`)
+
+## Citation
+TBA
