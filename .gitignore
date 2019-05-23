@@ -1,0 +1,7 @@
+__pycache__
+.idea
+data/*.txt
+results/*.txt
+results/*.csv
+results/*.png
+*.h5
