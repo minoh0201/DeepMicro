@@ -665,6 +665,7 @@ if __name__ == '__main__':
             if numRLrequired == 1:
                 rep_file = dm.data_dir + "results/" + dm.prefix + dm.data + "_rep.csv"
                 pd.DataFrame(dm.X_train).to_csv(rep_file, header=None, index=None)
+                print("The learned representation of the training set has been saved in {}".format(rep_file))
             else:
                 print("Warning: Command option '--save_rep' is not applied as no representation learning or dimensionality reduction has been conducted.")
 
