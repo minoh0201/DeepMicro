@@ -160,7 +160,7 @@ class DeepMicrobiome(object):
         self.printDataShapes()
 
     #Shallow Autoencoder & Deep Autoencoder
-    def ae(self, dims = [50], epochs= 2000, batch_size=100, verbose=2, loss='mean_squared_error', latent_act=False, output_act=False, act='relu', patience=20, val_rate=0.2):
+    def ae(self, dims = [50], epochs= 2000, batch_size=100, verbose=2, loss='mean_squared_error', latent_act=False, output_act=False, act='relu', patience=20, val_rate=0.2, no_trn=False):
 
         # manipulating an experiment identifier in the output file
         if patience != 20:
@@ -200,6 +200,9 @@ class DeepMicrobiome(object):
         self.autoencoder, self.encoder = DNN_models.autoencoder(dims, act=act, latent_act=latent_act, output_act=output_act)
         self.autoencoder.summary()
 
+        if no_trn:
+            return
+
         # compile model
         self.autoencoder.compile(optimizer='adam', loss=loss)
 
@@ -219,7 +222,7 @@ class DeepMicrobiome(object):
         self.X_test = self.encoder.predict(self.X_test)
 
     # Variational Autoencoder
-    def vae(self, dims = [10], epochs=2000, batch_size=100, verbose=2, loss='mse', output_act=False, act='relu', patience=25, beta=1.0, warmup=True, warmup_rate=0.01, val_rate=0.2):
+    def vae(self, dims = [10], epochs=2000, batch_size=100, verbose=2, loss='mse', output_act=False, act='relu', patience=25, beta=1.0, warmup=True, warmup_rate=0.01, val_rate=0.2, no_trn=False):
 
         # manipulating an experiment identifier in the output file
         if patience != 25:
@@ -274,6 +277,9 @@ class DeepMicrobiome(object):
         self.vae, self.encoder, self.decoder = DNN_models.variational_AE(dims, act=act, recon_loss=loss, output_act=output_act, beta=beta)
         self.vae.summary()
 
+        if no_trn:
+            return
+
         # fit
         self.history = self.vae.fit(X_inner_train, epochs=epochs, batch_size=batch_size, callbacks=callbacks, verbose=verbose, validation_data=(X_inner_test, None))
 
@@ -289,7 +295,7 @@ class DeepMicrobiome(object):
         _, _, self.X_test = self.encoder.predict(self.X_test)
 
     # Convolutional Autoencoder
-    def cae(self, dims = [32], epochs=2000, batch_size=100, verbose=2, loss='mse', output_act=False, act='relu', patience=25, val_rate=0.2, rf_rate = 0.1, st_rate = 0.25):
+    def cae(self, dims = [32], epochs=2000, batch_size=100, verbose=2, loss='mse', output_act=False, act='relu', patience=25, val_rate=0.2, rf_rate = 0.1, st_rate = 0.25, no_trn=False):
 
         # manipulating an experiment identifier in the output file
         self.prefix += 'CAE'
@@ -336,6 +342,8 @@ class DeepMicrobiome(object):
         # create cae model
         self.cae, self.encoder = DNN_models.conv_autoencoder(dims, act=act, output_act=output_act, rf_rate = rf_rate, st_rate = st_rate)
         self.cae.summary()
+        if no_trn:
+            return
 
         # compile
         self.cae.compile(optimizer='adam', loss=loss)
@@ -557,6 +565,7 @@ if __name__ == '__main__':
 
     # other options
     others = parser.add_argument_group('other optional arguments')
+    others.add_argument("--no_trn", help="stop before learning representation to see specified autoencoder structure", action='store_true')
     others.add_argument("--no_clf", help="skip classification tasks", action='store_true')
 
 
@@ -650,13 +659,13 @@ if __name__ == '__main__':
             dm.pca()
         if args.ae:
             dm.ae(dims=[int(i) for i in args.dims.split(',')], act=args.act, epochs=args.max_epochs, loss=args.aeloss,
-                  latent_act=args.ae_lact, output_act=args.ae_oact, patience=args.patience)
+                  latent_act=args.ae_lact, output_act=args.ae_oact, patience=args.patience, no_trn=args.no_trn)
         if args.vae:
             dm.vae(dims=[int(i) for i in args.dims.split(',')], act=args.act, epochs=args.max_epochs, loss=args.aeloss, output_act=args.ae_oact,
-                   patience= 25 if args.patience==20 else args.patience, beta=args.vae_beta, warmup=args.vae_warmup, warmup_rate=args.vae_warmup_rate)
+                   patience= 25 if args.patience==20 else args.patience, beta=args.vae_beta, warmup=args.vae_warmup, warmup_rate=args.vae_warmup_rate, no_trn=args.no_trn)
         if args.cae:
             dm.cae(dims=[int(i) for i in args.dims.split(',')], act=args.act, epochs=args.max_epochs, loss=args.aeloss, output_act=args.ae_oact,
-                   patience=args.patience, rf_rate = args.rf_rate, st_rate = args.st_rate)
+                   patience=args.patience, rf_rate = args.rf_rate, st_rate = args.st_rate, no_trn=args.no_trn)
         if args.rp:
             dm.rp()
 
