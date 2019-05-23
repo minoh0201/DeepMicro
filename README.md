@@ -88,7 +88,7 @@ y_test.shape:  (16,)
 Classification task has been skipped.
 ```
 
-__3. Suppose that we want to directly apply classification algorithms on our data without representation learning.__  Just remove `--save_rep` command will save your representation under the `/results` folder.
+__3. Suppose that we want to directly apply SVM algorithm on our data without representation learning.__  Remove `--no_clf` command and specify classification method with `-m svm` argument (If you don't specify classification algorithm, all three - SVM, Random Forest, Multi-layer perceptron - algorithms will be running).
 ```
-~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv --ae -dm 20 --save_rep
+~$ python DM.py -r 1 --no_clf -cd UserDataExample.csv -cl UserLabelExample.csv -m svm
 ```
