@@ -10,7 +10,7 @@ DeepMicro is a deep representation learning framework exploiting various autoenc
 ~$ git clone https://github.com/minoh0201/DeepMicro
 ~$ cd DeepMicro
 ```
-**Step 3:** Create virtual environment using anaconda3 ([Read Anaconda3 install guide](https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubuntu-18-04-quickstart)
+**Step 3:** Create virtual environment using anaconda3 ([Read Anaconda3 install guide](https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubuntu-18-04-quickstart))
 ```
 ~$ git clone https://github.com/minoh0201/DeepMicro
 ```
