@@ -5,6 +5,7 @@ DeepMicro is a deep representation learning framework exploiting various autoenc
 
 ### Setup
 **Step 1:** Change the current working directory to the location where you want to install `DeepMicro`.
+
 **Step 2:** Clone the repository using git command
 ```
 ~$ git clone https://github.com/minoh0201/DeepMicro
