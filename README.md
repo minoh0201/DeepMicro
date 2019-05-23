@@ -20,14 +20,14 @@ DeepMicro is a deep representation learning framework exploiting various autoenc
 ```
 ~$ pip install --upgrade pip && pip install numpy==1.16.2 && pip install pandas==0.24.2 && pip install scipy==1.2.1 && pip install sklearn==0.20.3 && pip install scikit-learn==0.20.3 && pip install matplotlib==3.0.3 && pip install psutil==5.6.1 && pip install keras==2.2.4
 ```
-If your machine is not equipped with GPU, install tensorflow cpu version 
-```
-~$ pip install tensorflow==1.13.1
-```
-If it is, then install tensorflow gpu version
-```
-~$ pip install tensorflow-gpu==1.13.1
-```
+* If your machine is not equipped with GPU, install tensorflow CPU version 
+  ```
+  ~$ pip install tensorflow==1.13.1
+  ```
+* If it is, then install tensorflow gpu version
+  ```
+  ~$ pip install tensorflow-gpu==1.13.1
+  ```
 **Step 5:** Run DeepMicro, printing out its usage.
 ```
 ~$ python DM.py -h
