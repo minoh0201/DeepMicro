@@ -3,8 +3,6 @@ DeepMicro is a deep representation learning framework exploiting various autoenc
 
 ## Quick Setup Guide
 
-*Tested on Ubuntu 18.04*
-
 **Step 1:** Change the current working directory to the location where you want to install `DeepMicro`.
 
 **Step 2:** Clone the repository using git command
