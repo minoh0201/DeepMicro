@@ -2,6 +2,7 @@
 DeepMicro is a deep representation learning framework exploiting various autoencoders to learn robust low-dimensional representations from high-dimensional data and training classification models based on the learned representation.
 
 ## Quick Setup Guide
+*tested on Ubuntu 18.04
 **Step 1:** Change the current working directory to the location where you want to install `DeepMicro`.
 
 **Step 2:** Clone the repository using git command
