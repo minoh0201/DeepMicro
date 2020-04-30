@@ -135,4 +135,4 @@ Here are another examples using a single classification algorithm.
 The result will be saved under `/results` folder in a file whose name is ended with `_results.txt` (e.g. `marker_WT2D_result.txt`)
 
 ## Citation
-TBA
+Oh, Min, and Liqing Zhang. "DeepMicro: deep representation learning for disease prediction based on microbiome data." Scientific reports 10.1 (2020): 1-9.
