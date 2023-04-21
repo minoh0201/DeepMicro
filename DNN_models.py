@@ -257,9 +257,9 @@ def variational_AE(dims, act='relu', init='glorot_uniform', output_act = False, 
 
     vae.compile(optimizer='adam', )
 
-    vae.metrics_tensors.append(K.mean(reconstruction_loss))
+    vae.metrics.append(K.mean(reconstruction_loss))
     vae.metrics_names.append("recon_loss")
-    vae.metrics_tensors.append(K.mean(beta * kl_loss))
+    vae.metrics.append(K.mean(beta * kl_loss))
     vae.metrics_names.append("kl_loss")
 
     return vae, encoder, decoder
